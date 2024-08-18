@@ -89,5 +89,347 @@ Bearer Token from the ```http://localhost:1581/stock-exchange/api/v1/auth/signin
 }
 ```
 
+## Postman
+```json
+{
+	"info": {
+		"_postman_id": "edd12e77-1a8d-40e7-bc87-62360c9a27d8",
+		"name": "STOCK EXCHANGE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10152965"
+	},
+	"item": [
+		{
+			"name": "Stock",
+			"item": [
+				{
+					"name": "Stock Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"HSBC\",\r\n    \"description\": \"A multinational banking and financial services company headquartered in London.\",\r\n    \"currentPrice\": \"600.20\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/stock-exchange/api/v1/stock",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"stock-exchange",
+								"api",
+								"v1",
+								"stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stock Price Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"GARAN\",\n    \"currentPrice\": \"41414141\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/stock-exchange/api/v1/stock",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"stock-exchange",
+								"api",
+								"v1",
+								"stock"
+							],
+							"query": [
+								{
+									"key": "price",
+									"value": "111111111",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stock Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/stock-exchange/api/v1/stock/:stockUuid",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"stock-exchange",
+								"api",
+								"v1",
+								"stock",
+								":stockUuid"
+							],
+							"variable": [
+								{
+									"key": "stockUuid",
+									"value": "efd5fd5e-9567-4a1f-a719-22a1217e88cd"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Stock Exchange",
+			"item": [
+				{
+					"name": "Stock Exchange Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"London Stock Exchange\",\r\n    \"description\": \"One of the leading stock exchanges in the United Kingdom and Europe.\",\r\n    \"currentPrice\": \"44500\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/stock-exchange/api/v1/stock-exchange",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"stock-exchange",
+								"api",
+								"v1",
+								"stock-exchange"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stock Add to Stock Exchange",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/stock-exchange/api/v1/stock-exchange/:name?stockName=HSBC",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"stock-exchange",
+								"api",
+								"v1",
+								"stock-exchange",
+								":name"
+							],
+							"query": [
+								{
+									"key": "stockName",
+									"value": "HSBC"
+								}
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "New York Stock Exchange"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Stock From Stock Exchange",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test\",\r\n    \"description\": \"Adasdsdsa\",\r\n    \"currentPrice\": \"321321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/stock-exchange/api/v1/stock-exchange/:name?stockName=AAPL",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"stock-exchange",
+								"api",
+								"v1",
+								"stock-exchange",
+								":name"
+							],
+							"query": [
+								{
+									"key": "stockName",
+									"value": "AAPL"
+								}
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "New York Stock Exchange"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stock Exchange List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Test\",\r\n    \"description\": \"Adasdsdsa\",\r\n    \"currentPrice\": \"321321\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/stock-exchange/api/v1/stock-exchange/:stockExchangeName",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"stock-exchange",
+								"api",
+								"v1",
+								"stock-exchange",
+								":stockExchangeName"
+							],
+							"variable": [
+								{
+									"key": "stockExchangeName",
+									"value": "New York Stock Exchange"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var responseJson = pm.response.json();\r",
+							"pm.collectionVariables.set(\"tokensy\", responseJson.token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"gokhantombul@hotmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/stock-exchange/api/v1/auth/signin",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"stock-exchange",
+						"api",
+						"v1",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{tokensy}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "tokensy",
+			"value": ""
+		}
+	]
+}
+```
 ## License
 This project is licensed under the MIT License.
