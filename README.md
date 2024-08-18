@@ -90,6 +90,7 @@ Bearer Token from the ```http://localhost:1581/stock-exchange/api/v1/auth/signin
 ```
 
 ## Postman Json Test
+File -> Import -> Copy And Paste Link
 ```
 https://api.postman.com/collections/10152965-edd12e77-1a8d-40e7-bc87-62360c9a27d8?access_key=PMAT-01J5G31BEK45R7A51KNH9KRTG7
 ```
